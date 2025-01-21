@@ -1,0 +1,1 @@
+export const TYPE_ORM_CONFIG_TOKEN: string = "TYPE_ORM_CONFIG";
