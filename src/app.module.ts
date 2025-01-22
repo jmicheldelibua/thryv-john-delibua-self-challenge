@@ -1,5 +1,6 @@
 import { typeOrmConfig } from '@core/config';
 import { TYPE_ORM_CONFIG_TOKEN } from '@core/constant';
+import { AuthModule } from '@modules/auth';
 import { TaskModule } from '@modules/task';
 import { UsersModule } from '@modules/users';
 import { Module } from '@nestjs/common';
@@ -15,7 +16,8 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
         configService.get(TYPE_ORM_CONFIG_TOKEN) as TypeOrmModuleOptions,
     }),
     UsersModule,
-    TaskModule
+    TaskModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
