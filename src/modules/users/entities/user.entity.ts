@@ -1,6 +1,6 @@
 import { Auditable } from "@common/entities";
 import { BeforeInsert, BeforeUpdate, Column, Entity } from "typeorm";
-import * as bcrypt from 'bcrypt';
+import { hashPassword } from "@core/utils";
 @Entity('users')
 export class User extends Auditable {
 
@@ -19,9 +19,12 @@ export class User extends Auditable {
     @Column({ type: 'varchar', length: 100, nullable: false })
     email: string;
 
+    // This decorators are used to hash the password before inserting or updating into the database
     @BeforeUpdate()
     @BeforeInsert()
     async hashPassword() {
-        this.password = await bcrypt.hash(this.password, process.env.JWT_SALT_OR_ROUNDS);
+        if (this.password) {
+            this.password = await hashPassword(this.password);
+        }
     }
 }

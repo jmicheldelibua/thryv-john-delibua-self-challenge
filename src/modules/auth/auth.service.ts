@@ -1,7 +1,7 @@
+import { comparePassword } from '@core/utils';
 import { User, UsersService } from '@modules/users';
 import { Injectable, Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -11,7 +11,7 @@ export class AuthService {
         const user = await this.usersService.findOneByUsername(username);
 
         try {
-            const match: boolean = await bcrypt.compare(pass, user?.password) as boolean;
+            const match: boolean = await comparePassword(pass, user?.password || '');
             if (user && match) {
                 const { password, ...result } = user;
                 return result as User;
