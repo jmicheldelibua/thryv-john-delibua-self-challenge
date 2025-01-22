@@ -11,7 +11,7 @@ export class AuthController {
 
     @Public()
     @UseGuards(LocalAuthGuard)
-    @Post('auth/login')
+    @Post('login')
     login(@Request() req: Request & { user?: User }, @Body() loginData: LoginDto) {
 
         return req?.user ? this.authService.login(req?.user) : null;
