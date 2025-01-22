@@ -20,7 +20,7 @@ export class UsersService {
   }
 
   findOneByUsername(username: string) {
-    return this.usersRepository.findOneBy({ username });
+    return this.usersRepository.findOne({ where: { username }, select: ['id', 'username', 'password'] });
   }
 
   findOne(id: number) {

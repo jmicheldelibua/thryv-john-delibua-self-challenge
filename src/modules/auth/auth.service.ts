@@ -11,8 +11,7 @@ export class AuthService {
         const user = await this.usersService.findOneByUsername(username);
 
         try {
-            const match: boolean = user?.password === pass;
-            // const match: boolean = await bcrypt.compare(pass, user?.password) as boolean;
+            const match: boolean = await bcrypt.compare(pass, user?.password) as boolean;
             if (user && match) {
                 const { password, ...result } = user;
                 return result as User;
