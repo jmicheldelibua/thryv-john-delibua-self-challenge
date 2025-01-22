@@ -14,6 +14,7 @@ async function bootstrap() {
   app.useGlobalFilters(new HttpExceptionFilter());
 
   const config = new DocumentBuilder()
+    .addBearerAuth()
     .setTitle('Task Manager API')
     .setDescription('Task Manager API endpoint for managing tasks')
     .setVersion('1.0')

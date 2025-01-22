@@ -1,14 +1,15 @@
 import { User } from '@modules/users';
-import { Body, Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post, Request, UseGuards } from '@nestjs/common';
 import { LoginDto } from './dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { AuthService } from './auth.service';
-import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { Public } from '@core/decorators';
 
 @Controller('auth')
 export class AuthController {
     constructor(private authService: AuthService) { }
 
+    @Public()
     @UseGuards(LocalAuthGuard)
     @Post('auth/login')
     login(@Request() req: Request & { user?: User }, @Body() loginData: LoginDto) {
@@ -16,13 +17,7 @@ export class AuthController {
         return req?.user ? this.authService.login(req?.user) : null;
     }
 
-    @UseGuards(JwtAuthGuard)
-    @Get('profile')
-    getProfile(@Request() req) {
-        return req.user;
-    }
 
-    @UseGuards(LocalAuthGuard)
     @Post('auth/logout')
     logout(@Request() req) {
         return req.logout();
