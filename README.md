@@ -24,7 +24,7 @@ I try to implement AWS services in the project as follow:
 1. Clone the repository:
 
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/jmicheldelibua/thryv-john-delibua-self-challenge.git
    cd task-manager
 
 2. Install dependencies:
@@ -60,17 +60,18 @@ I try to implement AWS services in the project as follow:
 
 
 ## Environment Variables
-APP_PORT: The port on which the application will run.
-NODE_ENV: The environment in which the application is running (e.g., development, production).
-DB_HOST: The database host.
-DB_DATABASE: The database name.
-DB_USERNAME: The database username.
-DB_PASSWORD: The database password.
-DB_PORT: The database port.
-DB_TYPE: The database type (e.g., mysql).
-JWT_SECRET: The secret key for JWT.
-JWT_EXPIRES_IN: The expiration time for JWT.
-JWT_SALT_OR_ROUNDS: The salt or rounds for bcrypt.
+- **APP_PORT**: The port on which the application will run.
+- **NODE_ENV**: The environment in which the application is running (e.g., development, production).
+- **DB_HOST**: The database host.
+- **DB_DATABASE**: The database name.
+- **DB_USERNAME**: The database username.
+- **DB_PASSWORD**: The database password.
+- **DB_PORT**: The database port.
+- **DB_TYPE**: The database type (e.g., mysql).
+- **JWT_SECRET**: The secret key for JWT.
+- **JWT_EXPIRES_IN**: The expiration time for JWT.
+- **JWT_SALT_OR_ROUNDS**: The salt or rounds for bcrypt.
+
 
 
 ## API Documentation
