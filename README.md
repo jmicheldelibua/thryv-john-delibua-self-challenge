@@ -71,6 +71,9 @@ I try to implement AWS services in the project as follow:
 - **JWT_SECRET**: The secret key for JWT.
 - **JWT_EXPIRES_IN**: The expiration time for JWT.
 - **JWT_SALT_OR_ROUNDS**: The salt or rounds for bcrypt.
+- **AWS_ACCESS_KEY_ID**: DynamoDB IAM AccessKey ID.
+- **AWS_SECRET_ACCESS_KEY**: DynamoDB IAM secrets.
+- **AWS_REGION**: DynamoDB region.
 
 
 
